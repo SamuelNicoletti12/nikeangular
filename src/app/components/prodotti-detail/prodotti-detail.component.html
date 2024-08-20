@@ -1,0 +1,20 @@
+<div class="row-cols-1" *ngIf="prodotto">
+  <h1>{{ prodotto.nome }}</h1>
+
+  <div class="col-2">
+    <h5>{{ prodotto.nome }}</h5>
+    <img class="img-fluid" [src]="prodotto.immagine" />
+    <div>
+      <strong>{{ prodotto.prezzo | currency }}</strong>
+    </div>
+    <hr />
+    <div>
+      <strong>{{ prodotto.descrizione }}</strong>
+    </div>
+    <hr />
+    <button class="btn btn-primary mt-2" (click)="addToCart()">
+      <i class="bi bi-cart-plus"></i>
+    </button>
+  </div>
+  <app-rating [rating]="prodotto.rating"></app-rating>
+</div>

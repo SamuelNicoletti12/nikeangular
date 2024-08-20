@@ -1,0 +1,54 @@
+<!-- <ul class="list-group" *ngIf="serviziservice.prodottiACarrello.length > 0">
+  <li
+    *ngFor="let p of serviziservice.prodottiACarrello"
+    class="list-group-item"
+  >
+    <button
+      class="btn btn-danger"
+      (click)="serviziservice.rimuoviDaCarrello(p.id)"
+    >
+      <i class="bi bi-cart-dash"></i>
+    </button>
+    {{ p.nome }}
+    <div class="col-2">
+      <img class="img-fluid" [src]="p.immagine" />
+    </div>
+    <div class="col">
+      {{ p.prezzo | currency }}
+    </div>
+  </li>
+</ul> -->
+<h3>Carrello</h3>
+<div class="d-flex justify-content-between">
+  <div
+    class="card"
+    style="width: 18rem"
+    *ngIf="serviziservice.prodottiACarrello.length > 0"
+  >
+    <span *ngFor="let p of serviziservice.prodottiACarrello">
+      <img class="img-fluid" [src]="p.immagine" />
+      <div class="card-body">
+        <h5 class="card-title">{{ p.nome }}</h5>
+        <p class="card-text">{{ p.prezzo | currency }}</p>
+        <button
+          class="btn btn-danger"
+          (click)="serviziservice.rimuoviDaCarrello(p.id)"
+        >
+          <i class="bi bi-cart-dash"></i>
+        </button>
+      </div>
+    </span>
+  </div>
+
+  <div class="ms-3" style="width: 500px">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Riepilogo ordine</h5>
+        <p class="card-text">Subtotale: {{ totalePrezzo | currency }}</p>
+        <p class="card-text">Costi di spedizione previsti: $5,00</p>
+        <p class="card-text">Totale: {{ totalePrezzo + 5 | currency }}</p>
+        <a href="#" class="btn btn-secondary">Vai al pagamento</a>
+      </div>
+    </div>
+  </div>
+</div>

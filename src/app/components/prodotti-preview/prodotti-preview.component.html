@@ -1,0 +1,21 @@
+<div class="col" *ngIf="prodotto">
+  <div class="card">
+    <img [src]="prodotto.immagine" [alt]="prodotto.nome" class="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title">
+        {{ prodotto.nome }}
+      </h5>
+      <p class="card-text">prezzo: {{ prodotto.prezzo | currency }}</p>
+      <app-rating [rating]="prodotto.rating"></app-rating>
+      <button
+        class="btn btn-primary mt-2"
+        (click)="ss.aggiungiACarrello(prodotto)"
+      >
+        <i class="bi bi-cart-plus"></i>
+      </button>
+      <a [routerLink]="['dettaglio', prodotto.id]" class="btn btn-warning mt-2"
+        >Dettaglio</a
+      >
+    </div>
+  </div>
+</div>

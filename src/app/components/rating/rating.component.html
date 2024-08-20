@@ -1,0 +1,9 @@
+<div *ngIf="rating">
+  {{ rating.rate }}
+  <i
+    class="bi"
+    *ngFor="let s of stelle"
+    [ngClass]="{ 'bi-star-fill': rating.rate >= s, 'bi-star': rating.rate < s }"
+  ></i>
+  &nbsp;<strong>{{ rating.count }}</strong> voti
+</div>
