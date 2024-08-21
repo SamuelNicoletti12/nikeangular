@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, provideHttpClient } from "@angular/common/http"
+import { FormsModule } from "@angular/forms"
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProdottiVetrinaComponent } from './components/prodotti-vetrina/prodotti-vetrina.component';
@@ -11,6 +12,7 @@ import { CarrelloComponent } from './components/carrello/carrello.component';
 import { ProdottiDetailComponent } from './components/prodotti-detail/prodotti-detail.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { RegistrazioneComponent } from './components/registrazione/registrazione.component';
+import { PagamentoComponent } from './components/pagamento/pagamento.component';
 
 
 
@@ -25,10 +27,12 @@ import { RegistrazioneComponent } from './components/registrazione/registrazione
     ProdottiDetailComponent,
     RatingComponent,
     RegistrazioneComponent,
+    PagamentoComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideHttpClient()

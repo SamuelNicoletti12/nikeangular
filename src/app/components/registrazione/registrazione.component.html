@@ -1,34 +1,56 @@
 <div class="row-cols-1">
-  <form class="row g-3">
+  <form class="row g-3" #laForm="ngForm">
     <div class="col-md-4">
-      <label for="validationServer01" class="form-label">Nome</label>
+      <label for="nome" class="form-label">Nome</label>
       <input
         type="text"
-        class="form-control is-valid"
-        id="validationServer01"
-        value=""
+        class="form-control"
+        id="nome"
+        name="nome"
         required
+        #inputNome="ngModel"
+        [(ngModel)]="form.nome"
+        [ngClass]="{
+          'is-invalid': inputNome.invalid && inputNome.dirty,
+          'is-valid': inputNome.valid && inputNome.dirty
+        }"
+        pattern="^[A-Za-z\\s]{1,50}$"
       />
     </div>
     <div class="col-md-4">
-      <label for="validationServer02" class="form-label">Cognome</label>
+      <label for="cognome" class="form-label">Cognome</label>
       <input
         type="text"
-        class="form-control is-valid"
-        id="validationServer02"
-        value=""
+        class="form-control"
+        id="cognome"
+        name="cognome"
         required
+        #inputCognome="ngModel"
+        [(ngModel)]="form.cognome"
+        [ngClass]="{
+          'is-invalid': inputCognome.invalid && inputCognome.dirty,
+          'is-valid': inputCognome.valid && inputCognome.dirty
+        }"
+        pattern="^[A-Za-z\\s]{1,50}$"
       />
     </div>
     <div class="col-md-4">
-      <label for="validationServerUsername" class="form-label">Email</label>
+      <label for="email" class="form-label">Email</label>
       <div class="input-group has-validation">
         <input
           type="text"
-          class="form-control is-invalid"
-          id="validationServerUsername"
-          aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback"
+          class="form-control"
+          id="email"
+          name="email"
+          aria-describedby="validationServer03Feedback"
           required
+          #inputEmail="ngModel"
+          [(ngModel)]="form.email"
+          [ngClass]="{
+            'is-invalid': inputEmail.invalid && inputEmail.dirty,
+            'is-valid': inputEmail.valid && inputEmail.dirty
+          }"
+          pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
         />
         <div id="validationServerUsernameFeedback" class="invalid-feedback">
           Email non valida
@@ -36,66 +58,82 @@
       </div>
     </div>
     <div class="col-md-6">
-      <label for="validationServer03" class="form-label">Citta</label>
+      <label for="citta" class="form-label">Citta</label>
       <input
         type="text"
-        class="form-control is-invalid"
-        id="validationServer03"
+        class="form-control"
+        id="citta"
+        name="citta"
         aria-describedby="validationServer03Feedback"
         required
+        #inputCitta="ngModel"
+        [(ngModel)]="form.citta"
+        [ngClass]="{
+          'is-invalid': inputCitta.invalid && inputCitta.dirty,
+          'is-valid': inputCitta.valid && inputCitta.dirty
+        }"
+        pattern="^[A-Za-z\\s]{1,50}$"
       />
       <div id="validationServer03Feedback" class="invalid-feedback">
         Scegli una citta esistente
       </div>
     </div>
     <div class="col-md-3">
-      <label for="validationServer04" class="form-label">Stato</label>
-      <select
-        class="form-select is-invalid"
-        id="validationServer04"
+      <label for="stato" class="form-label">Stato</label>
+      <input
+        type="text"
+        class="form-control"
+        id="stato"
+        name="stato"
         aria-describedby="validationServer04Feedback"
         required
-      >
-        <option selected disabled value="">Choose...</option>
-        <option>...</option>
-      </select>
+        #inputStato="ngModel"
+        [(ngModel)]="form.stato"
+        [ngClass]="{
+          'is-invalid': inputStato.invalid && inputStato.dirty,
+          'is-valid': inputStato.valid && inputStato.dirty
+        }"
+        pattern="^[A-Za-z\\s]{1,50}$"
+      />
       <div id="validationServer04Feedback" class="invalid-feedback">
-        scegli uno stato esistente.
+        Scegli uno Stato esistente.
       </div>
     </div>
     <div class="col-md-3">
-      <label for="validationServer05" class="form-label">CAP</label>
+      <label for="cap" class="form-label">CAP</label>
       <input
         type="text"
-        class="form-control is-invalid"
-        id="validationServer05"
+        class="form-control"
+        id="cap"
+        name="cap"
         aria-describedby="validationServer05Feedback"
         required
+        #inputCap="ngModel"
+        [(ngModel)]="form.cap"
+        [ngClass]="{
+          'is-invalid': inputCap.invalid && inputCap.dirty,
+          'is-valid': inputCap.valid && inputCap.dirty
+        }"
+        pattern="^[0-9]{5}"
       />
       <div id="validationServer05Feedback" class="invalid-feedback">
         Scegli un CAP valido.
       </div>
     </div>
-    <div class="col-12">
-      <div class="form-check">
-        <input
-          class="form-check-input is-invalid"
-          type="checkbox"
-          value=""
-          id="invalidCheck3"
-          aria-describedby="invalidCheck3Feedback"
-          required
-        />
-        <label class="form-check-label" for="invalidCheck3">
-          Accetta i termini di condizione
-        </label>
-        <div id="invalidCheck3Feedback" class="invalid-feedback">
-          Devi accettare i termini prima di registrati
-        </div>
-      </div>
+    <div class="alert alert-dark w-50" role="alert">
+      Proseguendo accetterai i nostri termini
+      <a href="#" class="alert-link">Normative sulla Privacy</a>. Clicca per
+      saperne di più
     </div>
     <div class="col-12">
-      <button class="btn btn-primary" type="submit">Registrati</button>
+      <button
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="!laForm.valid"
+        routerLink="/pagamento"
+      >
+        Registrati
+      </button>
     </div>
   </form>
 </div>

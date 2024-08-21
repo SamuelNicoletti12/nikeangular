@@ -6,6 +6,7 @@ import { ProdottiVetrinaComponent } from './components/prodotti-vetrina/prodotti
 import { ProdottiDetailComponent } from './components/prodotti-detail/prodotti-detail.component';
 import { CarrelloComponent } from './components/carrello/carrello.component';
 import { RegistrazioneComponent } from './components/registrazione/registrazione.component';
+import { PagamentoComponent } from './components/pagamento/pagamento.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,9 @@ const routes: Routes = [
   },
   {
     path: "registrazione", component: RegistrazioneComponent
+  },
+  {
+    path: "pagamento", component: PagamentoComponent
   }
 
 ];
