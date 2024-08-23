@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Prodotti } from '../../models/prodotto';
 import { ServiziService } from '../../services/servizi.service';
 import { ActivatedRoute } from '@angular/router';
+import { Form } from '../../models/form';
+import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-prodotti-detail',
@@ -11,6 +13,8 @@ import { ActivatedRoute } from '@angular/router';
 export class ProdottiDetailComponent implements OnInit {
 
   prodotto?: Prodotti;
+  form: Form = new Form();
+  images: string[] = []
 
   constructor(private ss: ServiziService, private route: ActivatedRoute) { }
 
@@ -18,6 +22,8 @@ export class ProdottiDetailComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get("id")!;
     this.ss.getProdottiById(id).subscribe(p => {
       this.prodotto = p;
+
+
     })
   }
 
@@ -25,6 +31,12 @@ export class ProdottiDetailComponent implements OnInit {
     this.ss.aggiungiACarrello(this.prodotto!)
   }
 
+  //   grande(link: string): void {
+  // if(link){
+  //   this.images = link
+  // }
+  //   }
 
 
 }
+

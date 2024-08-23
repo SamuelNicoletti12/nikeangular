@@ -7,6 +7,7 @@ import { ProdottiDetailComponent } from './components/prodotti-detail/prodotti-d
 import { CarrelloComponent } from './components/carrello/carrello.component';
 import { RegistrazioneComponent } from './components/registrazione/registrazione.component';
 import { PagamentoComponent } from './components/pagamento/pagamento.component';
+import { RingraziamentoComponent } from './components/ringraziamento/ringraziamento.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,9 @@ const routes: Routes = [
   },
   {
     path: "pagamento", component: PagamentoComponent
+  },
+  {
+    path: "ringraziamento", component: RingraziamentoComponent
   }
 
 ];

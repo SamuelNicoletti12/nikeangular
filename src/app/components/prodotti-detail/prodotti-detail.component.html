@@ -1,4 +1,4 @@
-<div class="row-cols-1" *ngIf="prodotto">
+<!-- <div class="row-cols-1" *ngIf="prodotto">
   <h1>{{ prodotto.nome }}</h1>
 
   <div class="col-2">
@@ -17,4 +17,45 @@
     </button>
   </div>
   <app-rating [rating]="prodotto.rating"></app-rating>
-</div>
+</div> -->
+
+<body>
+  <form #LaForm="ngForm">
+    <article>
+      <div id="immagini" *ngIf="prodotto">
+        <img *ngFor="let img of images" [src]="img" alt="Side Image" />
+      </div>
+      <div id="immagine">
+        <img class="img-fluid" [src]="prodotto?.immagine" />
+      </div>
+      <div id="nScarpe">
+        <h1>{{ prodotto?.nome }}</h1>
+        <p>{{ prodotto?.descrizione }}</p>
+        <strong
+          ><p>{{ prodotto?.prezzo | currency }}</p></strong
+        >
+        <p>scegli un colore</p>
+        <div id="red">
+          <button>Nero</button><button>Bianco</button><button>Rosso</button
+          ><button>Blu</button><button>Grigio</button>
+          <p>seleziona misura</p>
+          <button>EU 38</button><button>EU 39</button><button>EU 40</button
+          ><button>EU 41</button><button>EU 42</button><br /><button>
+            EU 43</button
+          ><button>EU 44</button><button>EU 45</button><button>EU 46</button
+          ><button>EU 47</button>
+        </div>
+
+        <div id="button">
+          <button
+            id="carrello"
+            (click)="addToCart()"
+            [disabled]="!LaForm.valid"
+          >
+            Aggiungi a carrello
+          </button>
+        </div>
+      </div>
+    </article>
+  </form>
+</body>

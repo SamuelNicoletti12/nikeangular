@@ -1,1 +1,117 @@
-<p>pagamento works!</p>
+<div class="row-cols-1">
+  <form class="row g-3" #laForm="ngForm">
+    <div class="col-md-4">
+      <label for="carta" class="form-label">Tipo carta</label>
+      <input
+        type="text"
+        class="form-control"
+        id="carta"
+        name="carta"
+        required
+        #inputCarta="ngModel"
+        [(ngModel)]="form.carta"
+        [ngClass]="{
+          'is-invalid': inputCarta.invalid && inputCarta.dirty,
+          'is-valid': inputCarta.valid && inputCarta.dirty
+        }"
+        pattern="^[A-Za-z\\s]{1,50}$"
+      />
+    </div>
+    <div class="col-md-4">
+      <label for="numero" class="form-label">Numero carta</label>
+      <input
+        type="text"
+        class="form-control"
+        id="numero"
+        name="numero"
+        required
+        #inputNumero="ngModel"
+        [(ngModel)]="form.numero"
+        [ngClass]="{
+          'is-invalid': inputNumero.invalid && inputNumero.dirty,
+          'is-valid': inputNumero.valid && inputNumero.dirty
+        }"
+        pattern="\b(?:\d[ -]*?){13,16}\b"
+      />
+    </div>
+    <div class="col-md-4">
+      <label for="data" class="form-label">Data di scadenza</label>
+      <div class="input-group has-validation">
+        <input
+          type="text"
+          class="form-control"
+          id="data"
+          name="data"
+          aria-describedby="validationServer03Feedback"
+          required
+          placeholder="DD/MM/YYYY"
+          #inputData="ngModel"
+          [(ngModel)]="form.data"
+          [ngClass]="{
+            'is-invalid': inputData.invalid && inputData.dirty,
+            'is-valid': inputData.valid && inputData.dirty
+          }"
+          pattern="\d{1,2}\/\d{1,2}\/\d{2,4}"
+        />
+        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+          Data sbagliata
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="cvv" class="form-label">CVV</label>
+      <input
+        type="text"
+        class="form-control"
+        id="cvv"
+        name="cvv"
+        aria-describedby="validationServer03Feedback"
+        required
+        #inputCVV="ngModel"
+        [(ngModel)]="form.cvv"
+        [ngClass]="{
+          'is-invalid': inputCVV.invalid && inputCVV.dirty,
+          'is-valid': inputCVV.valid && inputCVV.dirty
+        }"
+        pattern="[0-9]{3}"
+      />
+      <div id="validationServer03Feedback" class="invalid-feedback">
+        CVV non corretto
+      </div>
+    </div>
+    <div class="col-md-3">
+      <label for="intestatario" class="form-label"
+        >Nome intestatario carta</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="intestatario"
+        name="intestatario"
+        aria-describedby="validationServer04Feedback"
+        required
+        #inputProprietario="ngModel"
+        [(ngModel)]="form.proprietario"
+        [ngClass]="{
+          'is-invalid': inputProprietario.invalid && inputProprietario.dirty,
+          'is-valid': inputProprietario.valid && inputProprietario.dirty
+        }"
+        pattern="^[A-Za-z\\s]{1,50}$"
+      />
+      <div id="validationServer04Feedback" class="invalid-feedback">
+        intestatario non corrisposto
+      </div>
+    </div>
+
+    <div class="col-12">
+      <button
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="!laForm.valid"
+        routerLink="/ringraziamento"
+      >
+        Acquista
+      </button>
+    </div>
+  </form>
+</div>

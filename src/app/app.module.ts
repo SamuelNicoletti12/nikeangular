@@ -13,6 +13,7 @@ import { ProdottiDetailComponent } from './components/prodotti-detail/prodotti-d
 import { RatingComponent } from './components/rating/rating.component';
 import { RegistrazioneComponent } from './components/registrazione/registrazione.component';
 import { PagamentoComponent } from './components/pagamento/pagamento.component';
+import { RingraziamentoComponent } from './components/ringraziamento/ringraziamento.component';
 
 
 
@@ -28,6 +29,7 @@ import { PagamentoComponent } from './components/pagamento/pagamento.component';
     RatingComponent,
     RegistrazioneComponent,
     PagamentoComponent,
+    RingraziamentoComponent,
   ],
   imports: [
     BrowserModule,

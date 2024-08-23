@@ -49,6 +49,8 @@ export class ServiziService {
   aggiornaCarrelloCount(): void {
     this.carrelloCount.next(this.prodottiACarrello.length);
   }
+
+
 }
 
 
