@@ -13,6 +13,8 @@ export interface Prodotti {
   colori_disponibili: string[]
   descrizione: string
   immagine: string
+  immagini: string[]
+  video: []
   nuovo_arrivi: boolean
   best_seller: number
   rating: Rating

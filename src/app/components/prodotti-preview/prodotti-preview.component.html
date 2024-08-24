@@ -7,12 +7,7 @@
       </h5>
       <p class="card-text">prezzo: {{ prodotto.prezzo | currency }}</p>
       <app-rating [rating]="prodotto.rating"></app-rating>
-      <button
-        class="btn btn-primary mt-2"
-        (click)="ss.aggiungiACarrello(prodotto)"
-      >
-        <i class="bi bi-cart-plus"></i>
-      </button>
+
       <a [routerLink]="['dettaglio', prodotto.id]" class="btn btn-warning mt-2"
         >Dettaglio</a
       >

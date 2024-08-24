@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiziService } from '../../services/servizi.service';
+import { Prodotti } from '../../models/prodotto';
+
 
 @Component({
   selector: 'app-carrello',
@@ -8,9 +10,10 @@ import { ServiziService } from '../../services/servizi.service';
 })
 export class CarrelloComponent implements OnInit {
 
+
   carrelloCount: number = 0;
   totalePrezzo: number = 0;
-  constructor(public serviziservice: ServiziService) {
+  constructor(public serviziservice: ServiziService,) {
 
   }
   ngOnInit(): void {
@@ -18,6 +21,7 @@ export class CarrelloComponent implements OnInit {
       this.totalePrezzo = totale;
     });
   }
+
 
 
 

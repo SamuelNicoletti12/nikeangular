@@ -10,7 +10,7 @@ export class ServiziService {
 
   constructor(private http: HttpClient) { }
 
-  prodottiACarrello: Prodotti[] = [];
+  prodottiACarrello: Array<{ prodotto: Prodotti, colore: string, taglia: string }> = [];
   private totalePrezzo = new BehaviorSubject<number>(0);
   private carrelloCount = new BehaviorSubject<number>(0);
 
@@ -27,21 +27,22 @@ export class ServiziService {
 
   }
 
-  aggiungiACarrello(prodotto: Prodotti) {
-    this.prodottiACarrello.push(prodotto);
+  aggiungiACarrello(prodotto: Prodotti, colore: string, taglia: string) {
+    this.prodottiACarrello.push({ prodotto, colore, taglia });
     this.aggiornaTotalePrezzo();
     this.aggiornaCarrelloCount()
+
   }
 
   aggiornaTotalePrezzo(): void {
-    const totale = this.prodottiACarrello.reduce((acc, prodotto) => acc + prodotto.prezzo, 0);
+    const totale = this.prodottiACarrello.reduce((acc, item) => acc + item.prodotto.prezzo, 0);
     this.totalePrezzo.next(totale);
   }
 
 
 
-  rimuoviDaCarrello(id: number): void {
-    this.prodottiACarrello = this.prodottiACarrello.filter(p => p.id !== id);
+  rimuoviDaCarrello(id: number, colore: string, taglia: string): void {
+    this.prodottiACarrello = this.prodottiACarrello.filter(p => p.prodotto.id !== id || p.colore !== colore || p.taglia !== taglia);
     this.aggiornaCarrelloCount();
     this.aggiornaTotalePrezzo();
   }

@@ -1,61 +1,84 @@
-<!-- <div class="row-cols-1" *ngIf="prodotto">
-  <h1>{{ prodotto.nome }}</h1>
-
-  <div class="col-2">
-    <h5>{{ prodotto.nome }}</h5>
-    <img class="img-fluid" [src]="prodotto.immagine" />
-    <div>
-      <strong>{{ prodotto.prezzo | currency }}</strong>
+<div class="container">
+  <div id="galleria">
+    <div id="immagini">
+      <img
+        *ngFor="let immagine of immagini"
+        [src]="immagine"
+        (mouseover)="onImageHover(immagine)"
+        alt="Galleria"
+      />
     </div>
-    <hr />
-    <div>
-      <strong>{{ prodotto.descrizione }}</strong>
+    <div id="video">
+      <video
+        *ngFor="let video of videoGallery"
+        [src]="video"
+        (mouseover)="onVideoHover(video)"
+        alt="Galleria Video"
+        class="galleria-video"
+        muted
+      ></video>
     </div>
-    <hr />
-    <button class="btn btn-primary mt-2" (click)="addToCart()">
-      <i class="bi bi-cart-plus"></i>
-    </button>
   </div>
-  <app-rating [rating]="prodotto.rating"></app-rating>
-</div> -->
 
-<body>
-  <form #LaForm="ngForm">
-    <article>
-      <div id="immagini" *ngIf="prodotto">
-        <img *ngFor="let img of images" [src]="img" alt="Side Image" />
-      </div>
-      <div id="immagine">
-        <img class="img-fluid" [src]="prodotto?.immagine" />
-      </div>
-      <div id="nScarpe">
-        <h1>{{ prodotto?.nome }}</h1>
-        <p>{{ prodotto?.descrizione }}</p>
-        <strong
-          ><p>{{ prodotto?.prezzo | currency }}</p></strong
+  <div id="content">
+    <div id="media-principale">
+      <ng-container *ngIf="isVideo; else imageTemplate">
+        <video
+          [src]="mediaPrincipale"
+          controls
+          autoplay
+          class="video-principale"
         >
-        <p>scegli un colore</p>
-        <div id="red">
-          <button>Nero</button><button>Bianco</button><button>Rosso</button
-          ><button>Blu</button><button>Grigio</button>
-          <p>seleziona misura</p>
-          <button>EU 38</button><button>EU 39</button><button>EU 40</button
-          ><button>EU 41</button><button>EU 42</button><br /><button>
-            EU 43</button
-          ><button>EU 44</button><button>EU 45</button><button>EU 46</button
-          ><button>EU 47</button>
-        </div>
+          Your browser does not support the video tag.
+        </video>
+      </ng-container>
+      <ng-template #imageTemplate>
+        <img [src]="mediaPrincipale" alt="Immagine principale" />
+      </ng-template>
+    </div>
 
-        <div id="button">
-          <button
-            id="carrello"
-            (click)="addToCart()"
-            [disabled]="!LaForm.valid"
-          >
-            Aggiungi a carrello
-          </button>
-        </div>
+    <div id="info">
+      <h1>{{ prodotto?.nome }}</h1>
+      <p>{{ prodotto?.descrizione }}</p>
+      <strong
+        ><p>{{ prodotto?.prezzo | currency }}</p></strong
+      >
+
+      <div class="form-group" [ngClass]="{ 'red-border': !coloreSelezionato }">
+        <label for="colore">Seleziona colore</label>
+        <select
+          id="colore"
+          class="form-control"
+          [(ngModel)]="coloreSelezionato"
+          (change)="selezionaColore($event)"
+        >
+          <option *ngFor="let c of colori" [value]="c">{{ c }}</option>
+        </select>
+        <small *ngIf="!coloreSelezionato" class="text-danger"
+          >Seleziona un colore.</small
+        >
       </div>
-    </article>
-  </form>
-</body>
+
+      <div class="form-group" [ngClass]="{ 'red-border': !tagliaSelezionata }">
+        <label for="taglia">Seleziona misura</label>
+        <select
+          id="taglia"
+          class="form-control"
+          [(ngModel)]="tagliaSelezionata"
+          (change)="selezionaTaglia($event)"
+        >
+          <option *ngFor="let t of taglie" [value]="t">{{ t }}</option>
+        </select>
+        <small *ngIf="!tagliaSelezionata" class="text-danger"
+          >Seleziona una taglia.</small
+        >
+      </div>
+
+      <div id="button">
+        <button class="btn btn-primary" (click)="addToCart()">
+          Aggiungi al carrello
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
