@@ -27,12 +27,14 @@
         >Registrati</a
       >
     </div>
-    <form class="d-flex" role="search">
+    <form class="d-flex" (ngSubmit)="onSearch()">
       <input
         class="form-control me-2"
-        type="Cerca"
+        type="text"
         placeholder="Cerca"
         aria-label="Cerca"
+        [(ngModel)]="searchText"
+        name="searchText"
       />
       <button class="btn btn-outline-success" type="submit">Cerca</button>
     </form>
