@@ -15,6 +15,7 @@ import { RegistrazioneComponent } from './components/registrazione/registrazione
 import { PagamentoComponent } from './components/pagamento/pagamento.component';
 import { RingraziamentoComponent } from './components/ringraziamento/ringraziamento.component';
 import { SliderImmaginiComponent } from './components/slider-immagini/slider-immagini.component';
+import { SliderImmagini2Component } from './components/slider-immagini2/slider-immagini2.component';
 
 
 
@@ -32,6 +33,7 @@ import { SliderImmaginiComponent } from './components/slider-immagini/slider-imm
     PagamentoComponent,
     RingraziamentoComponent,
     SliderImmaginiComponent,
+    SliderImmagini2Component,
   ],
   imports: [
     BrowserModule,

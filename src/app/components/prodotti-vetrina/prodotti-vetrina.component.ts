@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Prodotti } from '../../models/prodotto';
 import { ServiziService } from '../../services/servizi.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-prodotti-vetrina',
@@ -10,15 +11,26 @@ import { ServiziService } from '../../services/servizi.service';
 export class ProdottiVetrinaComponent implements OnInit {
 
   prodotti: Prodotti[] = [];
+  categoriaFiltrata: string | null = null;
 
 
-  constructor(private ss: ServiziService) {
+  constructor(private ss: ServiziService, private route: ActivatedRoute) {
 
   }
   ngOnInit(): void {
-    this.ss.getProdotti().subscribe(dati => {
-      this.prodotti = dati;
+    this.route.queryParams.subscribe(params => {
+      this.categoriaFiltrata = params['categoria'] || null;
+      this.fetchProdotti();
     });
-
+  }
+  fetchProdotti(): void {
+    this.ss.getProdotti().subscribe((data: Prodotti[]) => {
+      if (this.categoriaFiltrata) {
+        this.prodotti = data.filter(prodotto => prodotto.categoria.toLowerCase() === this.categoriaFiltrata?.toLowerCase());
+      } else {
+        this.prodotti = data;
+      }
+    });
   }
 }
+

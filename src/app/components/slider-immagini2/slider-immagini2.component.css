@@ -1,0 +1,68 @@
+.slider-container {
+  position: relative;
+  width: 100%; /* Larghezza completa del viewport o del contenitore */
+  overflow: hidden; /* Nasconde le immagini che escono dai bordi */
+}
+
+.slider {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider-wrapper {
+  display: flex;
+  width: 300%; /* Tre colonne, quindi 300% del contenitore */
+  transition: transform 0.5s ease-in-out; /* Transizione fluida per lo scorrimento */
+}
+
+.slide {
+  flex: 1 0 33.3333%; /* Ogni slide occupa un terzo dello slider */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Per posizionare il pulsante */
+}
+
+.slide img {
+  width: 100%; /* Immagine riempie la larghezza della slide */
+  height: auto; /* Mantiene l'aspect ratio dell'immagine */
+  object-fit: cover; /* Riempi lo spazio senza distorcere l'immagine */
+}
+
+.slide-button {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.slider-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}

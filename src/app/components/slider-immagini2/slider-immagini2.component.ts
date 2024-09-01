@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-slider-immagini',
-  templateUrl: './slider-immagini.component.html',
-  styleUrl: './slider-immagini.component.css'
+  selector: 'app-slider-immagini2',
+  templateUrl: './slider-immagini2.component.html',
+  styleUrl: './slider-immagini2.component.css'
 })
-export class SliderImmaginiComponent {
+export class SliderImmagini2Component {
   @Input() images: string[] = [];
   currentIndex: number = 0;
   categories: string[] = ['basket', 'running', 'sneakers'];
@@ -41,3 +41,5 @@ export class SliderImmaginiComponent {
     this.router.navigate(['/prodotti'], { queryParams: { categoria: category } });
   }
 }
+
+

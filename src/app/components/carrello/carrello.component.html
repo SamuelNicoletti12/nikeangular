@@ -10,8 +10,8 @@
       <div class="card-body">
         <h5 class="card-title">{{ p.prodotto.nome }}</h5>
         <p class="card-text">{{ p.prodotto.prezzo | currency }}</p>
-        <p class="card-text">{{ p.taglia }}</p>
-        <p class="card-text">{{ p.colore }}</p>
+        <p class="card-text">taglia: {{ p.taglia }}</p>
+        <p class="card-text">colore: {{ p.colore }}</p>
 
         <button
           class="btn btn-danger"
