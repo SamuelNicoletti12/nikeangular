@@ -1,12 +1,12 @@
 <div class="slider-container">
-  <button class="slider-button prev" (click)="prevSlide()">&#10094;</button>
+  <button class="slider-button prev" (click)="precedente()">&#10094;</button>
 
   <div class="slider">
     <div class="slider-wrapper">
       <div
         class="slide"
         *ngFor="let image of images; let i = index"
-        (click)="navigateToCategory(i)"
+        (click)="vaiAllaCategoria(i)"
       >
         <img [src]="image" alt="Slide Image" />
         <button class="slide-button">Scopri di più</button>
@@ -14,5 +14,5 @@
     </div>
   </div>
 
-  <button class="slider-button next" (click)="nextSlide()">&#10095;</button>
+  <button class="slider-button next" (click)="successivo()">&#10095;</button>
 </div>

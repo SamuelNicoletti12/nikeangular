@@ -20,6 +20,7 @@ export class ProdottiDetailComponent implements OnInit {
   tagliaSelezionata!: string;
   mediaPrincipale!: string;
   isVideo: boolean = false;
+  notificaVisibile: boolean = false;
 
   constructor(private ss: ServiziService, private route: ActivatedRoute) { }
 
@@ -28,8 +29,8 @@ export class ProdottiDetailComponent implements OnInit {
     this.ss.getProdottiById(id).subscribe(p => {
       this.prodotto = p;
       this.immagini = this.prodotto.immagini;
-      this.videoGallery = this.prodotto.video; // Inizializza l'array dei video
-      this.mediaPrincipale = this.prodotto.immagine; // Default to main image
+      this.videoGallery = this.prodotto.video;
+      this.mediaPrincipale = this.prodotto.immagine;
       this.colori = this.prodotto.colori_disponibili;
       this.taglie = this.prodotto.taglie_disponibili;
     });
@@ -37,19 +38,28 @@ export class ProdottiDetailComponent implements OnInit {
 
   onImageHover(immagine: string): void {
     this.mediaPrincipale = immagine;
-    this.isVideo = false; // Quando si passa su un'immagine, imposta isVideo su false
+    this.isVideo = false;
   }
 
   onVideoHover(video: string): void {
     this.mediaPrincipale = video;
-    this.isVideo = true; // Quando si passa su un video, imposta isVideo su true
+    this.isVideo = true;
   }
 
   addToCart() {
     if (!this.coloreSelezionato || !this.tagliaSelezionata) { return; }
     if (this.prodotto) {
       this.ss.aggiungiACarrello(this.prodotto, this.coloreSelezionato, this.tagliaSelezionata);
+      this.mostraNotifica();
     }
+  }
+
+  mostraNotifica() {
+    this.notificaVisibile = true;
+
+    setTimeout(() => {
+      this.notificaVisibile = false;
+    }, 3000);
   }
 
   selezionaColore(event: Event) {

@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>Best Seller</h2>
+    </div>
+    <div *ngFor="let prodotto of bestSellerProdotti" class="col-md-4">
+      <div class="card">
+        <img
+          [src]="prodotto.immagine"
+          class="card-img-top"
+          alt="{{ prodotto.nome }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ prodotto.nome }}</h5>
+          <p class="card-text">{{ prodotto.prezzo | currency }}</p>
+          <p class="card-text">Rating: {{ prodotto.rating.rate }}</p>
+
+          <a
+            [routerLink]="['/prodotti/dettaglio', prodotto.id]"
+            class="btn btn-primary"
+            >Dettaglio</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

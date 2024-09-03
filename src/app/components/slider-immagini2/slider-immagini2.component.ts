@@ -11,32 +11,32 @@ export class SliderImmagini2Component {
   currentIndex: number = 0;
   categories: string[] = ['basket', 'running', 'sneakers'];
   constructor(private router: Router) { }
-  prevSlide(): void {
+  precedente(): void {
     if (this.currentIndex > 0) {
       this.currentIndex--;
     } else {
       this.currentIndex = Math.ceil(this.images.length / 3) - 1;
     }
-    this.updateSliderPosition();
+    this.posizioneSliderAggiornata();
   }
 
-  nextSlide(): void {
+  successivo(): void {
     if (this.currentIndex < Math.ceil(this.images.length / 3) - 1) {
       this.currentIndex++;
     } else {
       this.currentIndex = 0;
     }
-    this.updateSliderPosition();
+    this.posizioneSliderAggiornata();
   }
 
-  private updateSliderPosition(): void {
+  private posizioneSliderAggiornata(): void {
     const sliderWrapper = document.querySelector('.slider-wrapper') as HTMLElement;
     if (sliderWrapper) {
       sliderWrapper.style.transform = `translateX(-${this.currentIndex * 100 / 3}%)`;
     }
   }
 
-  navigateToCategory(index: number): void {
+  vaiAllaCategoria(index: number): void {
     const category = this.categories[index];
     this.router.navigate(['/prodotti'], { queryParams: { categoria: category } });
   }

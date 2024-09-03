@@ -16,6 +16,8 @@ import { PagamentoComponent } from './components/pagamento/pagamento.component';
 import { RingraziamentoComponent } from './components/ringraziamento/ringraziamento.component';
 import { SliderImmaginiComponent } from './components/slider-immagini/slider-immagini.component';
 import { SliderImmagini2Component } from './components/slider-immagini2/slider-immagini2.component';
+import { BestSellerComponent } from './components/best-seller/best-seller.component';
+import { NuoviArriviComponent } from './components/nuovi-arrivi/nuovi-arrivi.component';
 
 
 
@@ -34,6 +36,8 @@ import { SliderImmagini2Component } from './components/slider-immagini2/slider-i
     RingraziamentoComponent,
     SliderImmaginiComponent,
     SliderImmagini2Component,
+    BestSellerComponent,
+    NuoviArriviComponent,
   ],
   imports: [
     BrowserModule,

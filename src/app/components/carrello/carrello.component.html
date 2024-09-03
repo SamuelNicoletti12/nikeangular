@@ -10,16 +10,40 @@
       <div class="card-body">
         <h5 class="card-title">{{ p.prodotto.nome }}</h5>
         <p class="card-text">{{ p.prodotto.prezzo | currency }}</p>
-        <p class="card-text">taglia: {{ p.taglia }}</p>
-        <p class="card-text">colore: {{ p.colore }}</p>
+        <p class="card-text">Taglia: {{ p.taglia }}</p>
+        <p class="card-text">Colore: {{ p.colore }}</p>
+        <p class="card-text">Quantità: {{ p.quantita }}</p>
+
+        <div class="d-flex align-items-center">
+          <button
+            class="btn btn-secondary me-2"
+            (click)="
+              serviziservice.rimuoviDaCarrello(
+                p.prodotto.id,
+                p.colore,
+                p.taglia
+              )
+            "
+          >
+            <i class="bi bi-dash"></i>
+          </button>
+          <button
+            class="btn btn-secondary"
+            (click)="
+              serviziservice.aggiungiACarrello(p.prodotto, p.colore, p.taglia)
+            "
+          >
+            <i class="bi bi-plus"></i>
+          </button>
+        </div>
 
         <button
-          class="btn btn-danger"
+          class="btn btn-danger mt-2"
           (click)="
             serviziservice.rimuoviDaCarrello(p.prodotto.id, p.colore, p.taglia)
           "
         >
-          <i class="bi bi-cart-dash"></i>
+          Rimuovi
         </button>
       </div>
     </span>
@@ -32,8 +56,8 @@
         <p class="card-text">Subtotale: {{ totalePrezzo | currency }}</p>
         <p class="card-text">Costi di spedizione previsti: $5,00</p>
         <p class="card-text">Totale: {{ totalePrezzo + 5 | currency }}</p>
-        <a href="" routerLink="/pagamento" class="btn btn-secondary"
-          >Vai al pagamento</a
+        <a href="" routerLink="/registrazione" class="btn btn-secondary"
+          >Registrati se non sei membro Nike</a
         >
       </div>
     </div>

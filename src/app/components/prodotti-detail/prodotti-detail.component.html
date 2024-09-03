@@ -78,6 +78,24 @@
         <button class="btn btn-primary" (click)="addToCart()">
           Aggiungi al carrello
         </button>
+
+        <div
+          id="notifica-carrello"
+          class="notifica-carrello"
+          *ngIf="notificaVisibile"
+        >
+          <img
+            [src]="mediaPrincipale"
+            alt="Immagine prodotto"
+            class="notifica-immagine"
+          />
+          <div class="notifica-dettagli">
+            <p>{{ prodotto?.nome }} aggiunto al carrello!</p>
+            <p>Colore: {{ coloreSelezionato }}</p>
+            <p>Taglia: {{ tagliaSelezionata }}</p>
+            <p>Prezzo: {{ prodotto?.prezzo | currency }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

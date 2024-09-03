@@ -8,6 +8,8 @@ import { CarrelloComponent } from './components/carrello/carrello.component';
 import { RegistrazioneComponent } from './components/registrazione/registrazione.component';
 import { PagamentoComponent } from './components/pagamento/pagamento.component';
 import { RingraziamentoComponent } from './components/ringraziamento/ringraziamento.component';
+import { BestSellerComponent } from './components/best-seller/best-seller.component';
+import { NuoviArriviComponent } from './components/nuovi-arrivi/nuovi-arrivi.component';
 
 const routes: Routes = [
   {
@@ -30,6 +32,12 @@ const routes: Routes = [
   },
   {
     path: "ringraziamento", component: RingraziamentoComponent
+  },
+  {
+    path: "best-seller", component: BestSellerComponent
+  },
+  {
+    path: "nuovi-arrivi", component: NuoviArriviComponent
   }
 
 ];
