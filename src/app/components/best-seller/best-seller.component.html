@@ -13,7 +13,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ prodotto.nome }}</h5>
           <p class="card-text">{{ prodotto.prezzo | currency }}</p>
-          <p class="card-text">Rating: {{ prodotto.rating.rate }}</p>
+          <app-rating [rating]="prodotto.rating"></app-rating>
 
           <a
             [routerLink]="['/prodotti/dettaglio', prodotto.id]"

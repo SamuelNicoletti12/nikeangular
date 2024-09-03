@@ -18,6 +18,7 @@ import { SliderImmaginiComponent } from './components/slider-immagini/slider-imm
 import { SliderImmagini2Component } from './components/slider-immagini2/slider-immagini2.component';
 import { BestSellerComponent } from './components/best-seller/best-seller.component';
 import { NuoviArriviComponent } from './components/nuovi-arrivi/nuovi-arrivi.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -38,6 +39,7 @@ import { NuoviArriviComponent } from './components/nuovi-arrivi/nuovi-arrivi.com
     SliderImmagini2Component,
     BestSellerComponent,
     NuoviArriviComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
