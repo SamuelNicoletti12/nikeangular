@@ -168,6 +168,9 @@ select {
   #video video {
     max-width: 80px;
   }
+  #galleria {
+    display: none;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {

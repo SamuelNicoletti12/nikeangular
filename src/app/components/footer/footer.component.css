@@ -1,0 +1,22 @@
+footer {
+  background-color: #343a40; /* Scuro per il contrasto */
+  color: white;
+}
+
+footer a {
+  color: #ffc107; /* Colore giallo/arancione */
+  transition: color 0.2s;
+}
+
+footer a:hover {
+  color: #fff; /* Colore bianco al passaggio */
+}
+
+footer .list-inline-item a {
+  color: #ffc107;
+  transition: color 0.3s;
+}
+
+footer .list-inline-item a:hover {
+  color: #fff;
+}
