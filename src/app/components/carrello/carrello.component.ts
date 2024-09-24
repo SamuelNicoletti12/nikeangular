@@ -17,7 +17,9 @@ export class CarrelloComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    // Sottoscrizione all'osservabile `totalePrezzo$` per ottenere il totale aggiornato del prezzo nel carrello
     this.serviziservice.totalePrezzo$.subscribe(totale => {
+      // Aggiorna la variabile locale `totalePrezzo` con il valore ricevuto
       this.totalePrezzo = totale;
     });
   }
